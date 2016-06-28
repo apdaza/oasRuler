@@ -16,12 +16,24 @@ type Rule struct {
 
 /*Component estructura con anotaciones para gorp y json*/
 type Component struct {
-	Id         int64  `db:"id" json:"id"`
-	Rule       int64  `db:"rule" json:"rule"`
-	Comparator int64  `db:"comparator" json:"comparator"`
-	Path       string `db:"path" json:"path"`
-	Value      string `db:"value" json:"value"`
-	Literal    int16  `db:"literal" json:"literal"`
+	Id         			int64  	`db:"id" json:"id"`
+	Rule       			int64  	`db:"rule" json:"rule"`
+	Comparator 			int64  	`db:"comparator" json:"comparator"`
+	Path       			string 	`db:"path" json:"path"`
+	Value      			string 	`db:"value" json:"value"`
+	Literal    			int16  	`db:"literal" json:"literal"`
+}
+
+/*ComponentExtended estructura con anotaciones para gorp y json*/
+type ComponentExtended struct {
+	Id         			int64  	`db:"id" json:"id"`
+	Rule       			int64  	`db:"rule" json:"rule"`
+	RuleName       	string  `db:"ruleName" json:"ruleName"`
+	Comparator 			int64  	`db:"comparator" json:"comparator"`
+	ComparatorName 	string  `db:"comparatorName" json:"comparatorName"`
+	Path       			string 	`db:"path" json:"path"`
+	Value      			string 	`db:"value" json:"value"`
+	Literal    			int16  	`db:"literal" json:"literal"`
 }
 
 /*ComponentByRule estructura con anotaciones para gorp y json*/

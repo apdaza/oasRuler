@@ -114,8 +114,12 @@ func DeleteDomain(c *gin.Context) {
 
 /*GetComponents funcion para obtener componentes*/
 func GetComponents(c *gin.Context) {
-  var components []Component
-  _, err := dbmap.Select(&components, "SELECT * FROM component")
+  var components []ComponentExtended
+  _, err := dbmap.Select(&components, "SELECT c.id, c.rule as rule, r.name as ruleName, " +
+		" c.comparator, t.name as comparatorName, c.path, c.value, c.literal " +
+		" FROM rules.component as c "+
+		" inner join rules.comparator as t on c.comparator = t.id "+
+		" inner join rules.rule as r on r.id = c.rule ")
   if err == nil {
     c.JSON(200, components)
   } else {
